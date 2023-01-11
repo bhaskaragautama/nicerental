@@ -1,0 +1,46 @@
+html {
+    background-color: black;
+}
+
+body {
+    display: none;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    opacity: .3;
+    border-radius: 100%;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+#main-navbar {
+    transition: 0.3s;
+}
+
+/* scrollbar start */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #ffffff; 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(66, 66, 66); 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(58, 58, 58); 
+    }
+/* scrollbar end */
