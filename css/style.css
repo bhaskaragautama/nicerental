@@ -19,6 +19,26 @@ body {
     opacity: 1;
 }
 
+#carousel-detail > .carousel-indicators {
+    position: unset;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+}
+
+#carousel-detail > .carousel-indicators [data-bs-target] {
+    width: 80px;
+    height: 48px;
+    margin-right: 0;
+    margin-left: 0;
+    opacity: .8;
+    border-radius: 10%;
+}
+
+#carousel-detail > .carousel-indicators .active {
+    opacity: 1;
+}
+
 #main-navbar {
     transition: 0.3s;
 }
@@ -27,11 +47,12 @@ body {
     /* width */
     ::-webkit-scrollbar {
         width: 2px;
+        height: 4px;
     }
 
     /* Track */
     ::-webkit-scrollbar-track {
-        background: #ffffff; 
+        background: #e0e0e0; 
     }
 
     /* Handle */
