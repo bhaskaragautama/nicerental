@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    display: none;
+    /* display: none; */
 }
 
 .carousel-indicators [data-bs-target] {
@@ -31,7 +31,7 @@ body {
     height: 48px;
     margin-right: 0;
     margin-left: 0;
-    opacity: .8;
+    opacity: .3;
     border-radius: 10%;
 }
 
@@ -43,25 +43,29 @@ body {
     transition: 0.3s;
 }
 
+.table-detail  tr  td {
+    padding: 0px 5px;
+}
+
 /* scrollbar start */
-    /* width */
-    ::-webkit-scrollbar {
-        width: 2px;
-        height: 4px;
-    }
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+}
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #e0e0e0; 
-    }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #e0e0e0; 
+}
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: rgb(66, 66, 66); 
-    }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(66, 66, 66); 
+}
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgb(58, 58, 58); 
-    }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(58, 58, 58); 
+}
 /* scrollbar end */
