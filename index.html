@@ -415,14 +415,14 @@
             // console.log(area);
             console.log($('#about').position().top);
         }
-        animateHeader();
+        // animateHeader();
 
         $(document).ready(function () {
             // let area = getArea();
             getArea();
-            // $('body').fadeIn(300, function() {
-            //     animateHeader();
-            // });
+            $('body').fadeIn(300, function() {
+                animateHeader();
+            });
             $(window).scroll(function () { 
                 // let mid = $(window).scrollTop() + ($(window).innerHeight() / 2);
                 animateHeader();
