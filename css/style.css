@@ -45,6 +45,8 @@ body {
 
 .table-detail  tr  td {
     padding: 0px 5px;
+    vertical-align: top;
+    padding-bottom: 0.5rem;
 }
 
 /* scrollbar start */
