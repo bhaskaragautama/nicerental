@@ -20,14 +20,16 @@
     <!-- whatsapp end -->
 
     <!-- logo start -->
-    <div class="container-fluid position-fixed z-2 not-there" id="main-logo" style="opacity: 0;">
-        <div class="row justify-content-center">
-            <div class="col-md-2 col-6 text-center">
-                <img src="img/logo.png" class="img-fluid mt-5 mb-3"> <br>
-                <a href="#motorcycle" class="text-white d-lg-none"><i class="fa-solid fa-angles-down fa-fade"></i></a>
-            </div>
+    <div class="container-fluid position-fixed z-2 vw-100 vh-100 not-there" id="main-logo" style="opacity: 0;">
+        <div class="row h-100 justify-content-center align-items-center">
             <div class="col-12 text-center">
-                <p class="fs-2 text-white fw-bold">Rent Motorcycles in Bali</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-2 col-6">
+                        <img src="img/logo.png" class="img-fluid">
+                    </div>
+                </div>
+                <p class="fs-2 text-white fw-bold">Rent Motorcycles and Scooters in Bali</p>
+                <a href="#motorcycle" class="text-white d-lg-none"><i class="fa-solid fa-angles-down fa-fade"></i></a>
             </div>
         </div>
     </div>
@@ -47,10 +49,10 @@
                         <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#motorcycle">Motorcycles</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#motorcycle">Motorcycles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -59,16 +61,19 @@
                         <a class="nav-link" href="#reviews">Reviews</a>
                     </li>
                 </ul>
-                <div class="d-flex gap-3 me-2 text-white">
-                    <span class="fw-bold d-flex align-items-center">Phone: +62123456789</span>
+                <div class="d-md-flex d-grid gap-3 me-2 text-white align-items-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="fw-bold w-100 text-md-end">Phone: +62123456789</div>
+                        <div class="w-100 text-md-end">Telegram Name</div>
+                    </div>
                     <!-- <a href="#" class="btn btn-sm btn-light rounded-circle">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a> -->
-                    <a href="#" class="btn btn-sm btn-light rounded-circle">
-                        <i class="fa-brands fa-telegram"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-light rounded-circle">
-                        <i class="fa-solid fa-envelope"></i>
+                    <!-- <a href="#" class="text-white">
+                        <i class="fa-brands fa-telegram fa-fw fa-2x"></i>
+                    </a> -->
+                    <a href="#" class="text-white">
+                        <i class="fa-solid fa-square-envelope fa-fw fa-2x"></i>
                     </a>
                 </div>
             </div>
@@ -94,11 +99,11 @@
                 <!-- <img src="img/3.jpg" class="d-block w-100"> -->
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
+        <button class="carousel-control-prev z-3" type="button" data-bs-target="#home" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next">
+        <button class="carousel-control-next z-3" type="button" data-bs-target="#home" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -207,7 +212,7 @@
                 <p class="text-center">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ut ipsum suscipit asperiores, inventore fuga non molestiae omnis. Minima eveniet fuga error inventore molestias consequuntur incidunt dolore corporis perferendis pariatur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab omnis vel necessitatibus. Animi deserunt aut architecto, ab, reprehenderit labore esse ut quas minima, illum cupiditate sint dolor cum aliquid ipsum? Lorem ipsum dolor sit amet consectetur adipisicing elit. In possimus facere dolorum assumenda, perspiciatis sapiente inventore doloremque beatae porro maiores fugit omnis iure est neque corporis quisquam tempora aspernatur aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, eius consequatur quis sequi repellat ut debitis quos iste natus, quo voluptatum, officia inventore non. Nisi dolor aliquid sed sunt quia.
                 </p>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center overflow-hidden">
                     <div class="col-lg-3 col-md-6">
                         <div class="p-3 text-center" data-aos="fade-right">
                             <img src="img/person1.jpg" class="img-fluid rounded-circle shadow mb-3">
@@ -292,7 +297,7 @@
                 <h1 class="display-5 text-center">Reviews</h1>
                 <div class="row mt-5">
                     <div class="col-12" data-aos="fade-up">
-                        <div class="text-center bg-light rounded-1 mx-5 p-5">
+                        <div class="text-center bg-light rounded-1 mx-lg-5 p-lg-5 p-3">
                             <div class="mb-3">
                                 <i class="fa-solid fa-star text-warning fa-2x"></i>
                                 <i class="fa-solid fa-star text-warning fa-2x"></i>
@@ -307,49 +312,49 @@
                                 200 customer ratings
                             </div>
                             <div class="row mb-3">
-                                <div class="col-xl-2 col-lg-3 col-2"><i class="fa-solid fa-star text-warning"></i> 5</div>
-                                <div class="col-xl-8 col-lg-6 col-8 py-1">
+                                <div class="col-xl-2 col-lg-3 col-3"><i class="fa-solid fa-star text-warning"></i> 5</div>
+                                <div class="col-xl-8 col-lg-6 col-6 py-1">
                                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: 90%"></div>
                                       </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-3 col-2">90%</div>
+                                <div class="col-xl-2 col-lg-3 col-3">90%</div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-xl-2 col-lg-3 col-2"><i class="fa-solid fa-star text-warning"></i> 4</div>
-                                <div class="col-xl-8 col-lg-6 col-8 py-1">
+                                <div class="col-xl-2 col-lg-3 col-3"><i class="fa-solid fa-star text-warning"></i> 4</div>
+                                <div class="col-xl-8 col-lg-6 col-6 py-1">
                                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: 20%"></div>
                                       </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-3 col-2">20%</div>
+                                <div class="col-xl-2 col-lg-3 col-3">20%</div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-xl-2 col-lg-3 col-2"><i class="fa-solid fa-star text-warning"></i> 3</div>
-                                <div class="col-xl-8 col-lg-6 col-8 py-1">
+                                <div class="col-xl-2 col-lg-3 col-3"><i class="fa-solid fa-star text-warning"></i> 3</div>
+                                <div class="col-xl-8 col-lg-6 col-6 py-1">
                                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: 15%"></div>
                                       </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-3 col-2">15%</div>
+                                <div class="col-xl-2 col-lg-3 col-3">15%</div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-xl-2 col-lg-3 col-2"><i class="fa-solid fa-star text-warning"></i> 2</div>
-                                <div class="col-xl-8 col-lg-6 col-8 py-1">
+                                <div class="col-xl-2 col-lg-3 col-3"><i class="fa-solid fa-star text-warning"></i> 2</div>
+                                <div class="col-xl-8 col-lg-6 col-6 py-1">
                                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: 10%"></div>
                                       </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-3 col-2">10%</div>
+                                <div class="col-xl-2 col-lg-3 col-3">10%</div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-xl-2 col-lg-3 col-2"><i class="fa-solid fa-star text-warning"></i> 1</div>
-                                <div class="col-xl-8 col-lg-6 col-8 py-1">
+                                <div class="col-xl-2 col-lg-3 col-3"><i class="fa-solid fa-star text-warning"></i> 1</div>
+                                <div class="col-xl-8 col-lg-6 col-6 py-1">
                                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: 5%"></div>
                                       </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-3 col-2">5%</div>
+                                <div class="col-xl-2 col-lg-3 col-3">5%</div>
                             </div>
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#review-modal">All Reviews</button>
                         </div>
@@ -368,7 +373,47 @@
         <div class="row">
             <div class="col-12 bg-dark text-white">
                 <div class="footer p-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima inventore vero, dolorem doloremque quisquam quia dolores magni dignissimos quis expedita itaque cumque in odio porro consectetur accusamus. Corporis, nobis eius.
+                    <div class="row mb-5">
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="img/logo.png" class="w-75">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <div class="mb-3 fw-bold">
+                                NAVIGATION
+                            </div>
+                            <div class="row">
+                                <div class="col-auto"><a href="#home" class="text-decoration-none text-white">Home</a></div>
+                                <div class="col-auto"><a href="#motorcycle" class="text-decoration-none text-white">Motorcycles</a></div>
+                                <div class="col-auto"><a href="#about" class="text-decoration-none text-white">About</a></div>
+                                <div class="col-auto"><a href="#contact" class="text-decoration-none text-white">Contact</a></div>
+                                <div class="col-auto"><a href="#reviews" class="text-decoration-none text-white">Reviews</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <div class="mb-3 fw-bold">
+                                CONTACT US
+                            </div>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <a href="#" class="text-white">
+                                        <i class="fa-brands fa-whatsapp fa-2x"></i>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="text-white">
+                                        <i class="fa-brands fa-telegram fa-2x"></i>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="text-white">
+                                        <i class="fa-solid fa-envelope fa-2x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -535,141 +580,213 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
-                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
-                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
+                    </div><div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
-                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
+                    </div><div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
-                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
+                    </div><div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
-                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
+                    </div><div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
-                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
+                    </div><div class="mb-3">
                         <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
-                            <div class="col-lg-2 col-md-3">
+                            <div class="col-lg-2 col-3">
                                 <img src="img/user.png" class="img-fluid rounded-circle">
                             </div>
-                            <div class="col-lg-10 col-md-9">
-                                <div class="mb-1 fs-5">User Name</div>
-                                <div class="mb-1">
-                                    (4/5)
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
+                            </div>
+                        </div>
+                    </div><div class="mb-3">
+                        <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
+                            <div class="col-lg-2 col-3">
+                                <img src="img/user.png" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
+                            </div>
+                        </div>
+                    </div><div class="mb-3">
+                        <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
+                            <div class="col-lg-2 col-3">
+                                <img src="img/user.png" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
+                            </div>
+                        </div>
+                    </div><div class="mb-3">
+                        <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
+                            <div class="col-lg-2 col-3">
+                                <img src="img/user.png" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
                             </div>
                         </div>
                     </div>
