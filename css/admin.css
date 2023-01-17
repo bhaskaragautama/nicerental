@@ -1,0 +1,128 @@
+/* body {
+   font-family: 'Montserrat', sans-serif;
+} */
+
+a, a:hover, a:focus, a:visited {
+    text-decoration: none;
+ }
+ 
+ .flasher {
+    position: fixed;
+    z-index: 9;
+    top: 15px;
+    right: 15px;
+ }
+ 
+ .flasher {
+    z-index: 9999;
+ }
+ 
+ .tooltip { 
+    pointer-events: none; 
+ }
+ 
+ .table > thead > tr > th {
+    text-align: center;
+ }
+ 
+ .sidebar {
+    background-color: rgb(20, 20, 20);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+ }
+ 
+ .side-menu {
+    color: #ffffff;
+    padding: 15px 30px;
+    display: block;
+ }
+ 
+ .side-menu:hover {
+    background-color: #0a58ca;
+    color: #ffffff !important;
+ }
+ 
+ .sidebar .active {
+    border-left: 5px solid #0a58ca;
+    padding-left: 25px;
+    color: #65a2ff;
+ }
+ 
+ .menu-text {
+    margin-left: 10px;
+ }
+ 
+ .menu-group-lg {
+    padding: 10px 20px 5px 20px;
+    font-size: smaller;
+    color: #979797;
+ }
+ 
+ .menu-group-sm {
+    border-bottom: 1px solid #707070;
+ }
+ 
+ .table-container {
+    overflow-x: auto;
+ }
+ 
+ .breadcrumb {
+    padding: 10px 15px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+ }
+ 
+ .pointing {
+    cursor: pointer;
+ }
+ 
+ .row-hover:hover {
+    background-color: #9ec5fe;
+ }
+ 
+ .smallest {
+    font-size: .67em;
+ }
+
+ #carousel-detail > .carousel-indicators {
+   position: unset;
+   overflow-x: auto;
+   display: block;
+   white-space: nowrap;
+}
+
+#carousel-detail > .carousel-indicators [data-bs-target] {
+   width: 80px;
+   height: 48px;
+   margin-right: 0;
+   margin-left: 0;
+   opacity: .3;
+   border-radius: 10%;
+}
+
+#carousel-detail > .carousel-indicators .active {
+   opacity: 1;
+}
+ 
+ /* ===== Scrollbar CSS ===== */
+   /* Firefox */
+   * {
+    scrollbar-width: none;
+    scrollbar-color: #3d3d3d #dbdbdb;
+  }
+ 
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+ 
+  *::-webkit-scrollbar-track {
+    background: #dbdbdb;
+  }
+ 
+  *::-webkit-scrollbar-thumb {
+    background-color: #3d3d3d;
+    border-radius: 0px;
+    border: 0px none #ffffff;
+  }

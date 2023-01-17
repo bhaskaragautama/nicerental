@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nice Rental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/datatables/datatables.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="<?= BASEURL; ?>/assets/datepicker/css/bootstrap-datepicker.min.css"> -->
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="assets/fontawesome/js/all.min.js"></script>
+    <script src="assets/datatables/datatables.min.js"></script>
+    <!-- <script src="<?= BASEURL; ?>/assets/datepicker/js/bootstrap-datepicker.min.js"></script> -->
+    <!-- <script src="<?= BASEURL; ?>/assets/js/flasher.js"></script> -->
+    <script src="assets/tinymce/tinymce.min.js"></script>
+</head>
+<body>
+    <!-- <div class="flasher">
+      <?php Flasher::flash(); ?>
+    </div> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 px-0 sidebar text-white">
+                <h4 class="text-center mt-3 mb-4">Nice Rental</h4>
+                <div class="text-center text-lg-start mb-5">
+                    <div class="menu-group-lg d-none d-lg-block">Dashboard</div><div class="menu-group-sm mx-2 d-lg-none"></div>
+                    <a class="side-menu <?= $page == 'home' ? 'active' : ''; ?>" href="dashboard.html"><i class="fa-solid fa-home"></i> <span class="menu-text d-none d-lg-inline-block">Home</span></a>
+                    <div class="menu-group-lg d-none d-lg-block">Master Data</div><div class="menu-group-sm mx-2 d-lg-none"></div>
+                    <a class="side-menu" href="motorcycles.html"><i class="fa-solid fa-user"></i> <span class="menu-text d-none d-lg-inline-block">Motorcycles</span></a>
+                    <a class="side-menu active" href="photos.html"><i class="fa-solid fa-id-card"></i> <span class="menu-text d-none d-lg-inline-block">Photos</span></a>
+                    <a class="side-menu <?= $page == 'category' ? 'active' : ''; ?>" href="reviews.html"><i class="fa-solid fa-layer-group"></i> <span class="menu-text d-none d-lg-inline-block">Reviews</span></a>
+                </div>
+            </div>
+            <div class="col-10 offset-2 px-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid px-3">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Homepage</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-user"></i> <?= $_SESSION['ht-username']; ?>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="account.html">My Account</a></li>
+                                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="p-4">   
+                    <h3 class="mb-2">Photo from Customers</h3>
+                    <div class="mt-4">
+                        <a href="#" data-bs-target="#modal-form" data-bs-toggle="modal" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus-circle"></i> Add</a>
+                        <div class="row mt-3">
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                <button class="btn btn-sm btn-danger position-absolute m-2" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-times fa-fw"></i></button>
+                                <img src="img/display1.jpg" class="w-100 h-100 object-fit-cover rounded-1" loading="lazy">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                <button class="btn btn-sm btn-danger position-absolute m-2" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-times fa-fw"></i></button>
+                                <img src="img/display2.jpg" class="w-100 h-100 object-fit-cover rounded-1" loading="lazy">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                <button class="btn btn-sm btn-danger position-absolute m-2" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-times fa-fw"></i></button>
+                                <img src="img/display3.jpg" class="w-100 h-100 object-fit-cover rounded-1" loading="lazy">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                <button class="btn btn-sm btn-danger position-absolute m-2" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-times fa-fw"></i></button>
+                                <img src="img/display4.jpg" class="w-100 h-100 object-fit-cover rounded-1" loading="lazy">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                <button class="btn btn-sm btn-danger position-absolute m-2" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-times fa-fw"></i></button>
+                                <img src="img/display5.jpg" class="w-100 h-100 object-fit-cover rounded-1" loading="lazy">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                <button class="btn btn-sm btn-danger position-absolute m-2" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-times fa-fw"></i></button>
+                                <img src="img/display6.jpg" class="w-100 h-100 object-fit-cover rounded-1" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal delete -->
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-deleteLabel">Warning!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to remove this data? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a id="modal-delete-btn" class="btn btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal delete -->
+
+    <!-- Modal form -->
+    <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="modal-formLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-formLabel">Add Photos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="photos" class="form-label">Photos</label>
+                        <input type="file" class="form-control" id="photos" multiple>
+                    </div>
+                    <button class="btn btn-primary"><i class="fa-solid fa-save"></i> Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal form -->
+
+    <script src="js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nice Rental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/datatables/datatables.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="<?= BASEURL; ?>/assets/datepicker/css/bootstrap-datepicker.min.css"> -->
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="assets/fontawesome/js/all.min.js"></script>
+    <script src="assets/datatables/datatables.min.js"></script>
+    <!-- <script src="<?= BASEURL; ?>/assets/datepicker/js/bootstrap-datepicker.min.js"></script> -->
+    <!-- <script src="<?= BASEURL; ?>/assets/js/flasher.js"></script> -->
+    <script src="assets/tinymce/tinymce.min.js"></script>
+</head>
+<body>
+    <!-- <div class="flasher">
+      <?php Flasher::flash(); ?>
+    </div> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 px-0 sidebar text-white">
+                <h4 class="text-center mt-3 mb-4">Nice Rental</h4>
+                <div class="text-center text-lg-start mb-5">
+                    <div class="menu-group-lg d-none d-lg-block">Dashboard</div><div class="menu-group-sm mx-2 d-lg-none"></div>
+                    <a class="side-menu <?= $page == 'home' ? 'active' : ''; ?>" href="dashboard.html"><i class="fa-solid fa-home"></i> <span class="menu-text d-none d-lg-inline-block">Home</span></a>
+                    <div class="menu-group-lg d-none d-lg-block">Master Data</div><div class="menu-group-sm mx-2 d-lg-none"></div>
+                    <a class="side-menu" href="motorcycles.html"><i class="fa-solid fa-user"></i> <span class="menu-text d-none d-lg-inline-block">Motorcycles</span></a>
+                    <a class="side-menu <?= $page == 'member' ? 'active' : ''; ?>" href="photos.html"><i class="fa-solid fa-id-card"></i> <span class="menu-text d-none d-lg-inline-block">Photos</span></a>
+                    <a class="side-menu active" href="reviews.html"><i class="fa-solid fa-layer-group"></i> <span class="menu-text d-none d-lg-inline-block">Reviews</span></a>
+                </div>
+            </div>
+            <div class="col-10 offset-2 px-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid px-3">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Homepage</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-user"></i> <?= $_SESSION['ht-username']; ?>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="account.html">My Account</a></li>
+                                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="p-4">   
+                    <h3 class="mb-2">Reviews</h3>
+                        <div class="mt-4">
+                            <a href="#" data-bs-target="#modal-form" data-bs-toggle="modal" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus-circle"></i> Add</a>
+                            <div class="row table-container py-3 mt-1">
+                                <table id="tbl-motorcycles" class="table table-bordered" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th>Rating</th>
+                                            <th>Comment</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td class="text-nowrap">John Doe</td>
+                                            <td class="text-center text-nowrap">
+                                                <span class="d-none">5</span>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                            </td>
+                                            <td>
+                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus unde fugit a repellendus deserunt nesciunt dignissimos sunt eos iure, nemo iusto modi fuga minus ullam non dolor culpa ducimus perspiciatis?
+                                            </td>
+                                            <td class="text-center text-nowrap">
+                                                <button class="btn btn-sm btn-primary" title="Detail" data-bs-toggle="modal" data-bs-target="#motorcycle-detail"><i class="fa-solid fa-bars"></i></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-bs-toggle="modal" data-bs-target="#modal-form-edit"><i class="fa-solid fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td class="text-nowrap">Jane Doe</td>
+                                            <td class="text-center text-nowrap">
+                                                <span class="d-none">4</span>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                            </td>
+                                            <td>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium beatae dolorum ducimus atque numquam, fugit corrupti officiis architecto accusamus qui maiores iste eum quod autem nesciunt nisi id adipisci suscipit?
+                                            </td>
+                                            <td class="text-center text-nowrap">
+                                                <button class="btn btn-sm btn-primary" title="Detail" data-bs-toggle="modal" data-bs-target="#motorcycle-detail"><i class="fa-solid fa-bars"></i></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-bs-toggle="modal" data-bs-target="#modal-form-edit"><i class="fa-solid fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td class="text-nowrap">John Lennon</td>
+                                            <td class="text-center text-nowrap">
+                                                <span class="d-none">3</span>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                            </td>
+                                            <td>
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat rerum ut qui laudantium fugiat officiis rem exercitationem, expedita aperiam molestiae. Necessitatibus sapiente laboriosam voluptates magnam corporis, est autem ut quod?
+                                            </td>
+                                            <td class="text-center text-nowrap">
+                                                <button class="btn btn-sm btn-primary" title="Detail" data-bs-toggle="modal" data-bs-target="#motorcycle-detail"><i class="fa-solid fa-bars"></i></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-bs-toggle="modal" data-bs-target="#modal-form-edit"><i class="fa-solid fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal delete -->
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-deleteLabel">Warning!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to remove this data? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a id="modal-delete-btn" class="btn btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal delete -->
+
+    <!-- Modal form -->
+    <div class="modal fade modal-lg" id="modal-form" tabindex="-1" aria-labelledby="modal-formLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-formLabel">Review Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <input type="hidden" id="rating">
+                        <div class="rating">
+                            <div class="d-inline text-secondary opacity-25 pointing star-rating star0" data-value="0">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-secondary opacity-25 pointing star-rating star1" data-value="1">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-secondary opacity-25 pointing star-rating star2" data-value="2">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-secondary opacity-25 pointing star-rating star3" data-value="3">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-secondary opacity-25 pointing star-rating star4" data-value="4">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comment</label>
+                        <textarea id="comment" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="photo" class="form-label">User Photo</label>
+                        <input type="file" class="form-control" id="photo">
+                    </div>
+                    <button class="btn btn-primary"><i class="fa-solid fa-save"></i> Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal form -->
+
+    <!-- Modal form edit -->
+    <div class="modal fade modal-lg" id="modal-form-edit" tabindex="-1" aria-labelledby="modal-form-editLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-form-editLabel">Review Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" value="John Doe">
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating-edit" class="form-label">Rating</label>
+                        <input type="hidden" id="rating-edit" value="4">
+                        <div class="rating-edit">
+                            <div class="d-inline text-warning opacity-1 pointing star-rating-edit star-edit0" data-value="0">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-warning opacity-1 pointing star-rating-edit star-edit1" data-value="1">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-warning opacity-1 pointing star-rating-edit star-edit2" data-value="2">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-warning opacity-1 pointing star-rating-edit star-edit3" data-value="3">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <div class="d-inline text-secondary opacity-25 pointing star-rating-edit star-edit4" data-value="4">
+                                <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comment</label>
+                        <textarea id="comment" class="form-control">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minima tempora, assumenda quidem adipisci et distinctio pariatur accusantium nemo quia voluptates non deleniti sed autem officiis animi rerum hic magnam!</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="photo" class="form-label">User Photo</label>
+                        <div class="row">
+                            <div class="col-3 mb-3">
+                                <div>
+                                    <button type="button" class="btn-close position-absolute p-2" aria-label="Close"></button>
+                                    <img src="img/user.png" class="img-fluid rounded-1">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="file" class="form-control" id="photo">
+                    </div>
+                    <button class="btn btn-primary"><i class="fa-solid fa-save"></i> Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal form edit -->
+
+    <!-- motorcycle detail modal start -->
+    <div class="modal modal-lg fade" id="motorcycle-detail" tabindex="-1" aria-labelledby="motorcycle-detailLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="motorcycle-detailLabel">Detail</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <div class="row bg-primary bg-opacity-10 p-3 m-3 rounded-3">
+                            <div class="col-lg-2 col-3">
+                                <img src="img/user.png" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-lg-10 col-9">
+                                <div class="d-flex align-items-center flex-column h-100">
+                                    <div class="mb-1 fs-5 w-100 mt-auto">User Name</div>
+                                    <div class="mb-1 w-100 mb-auto">
+                                        (4/5)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia rem sit, iure, itaque alias dolorem numquam dignissimos natus corrupti, vitae ipsam animi minus voluptas. Ipsum illum quisquam tempora doloremque!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- motorcycle detail modal end -->
+
+    <script src="js/sidebar.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tbl-motorcycles').DataTable({
+                'columns': [
+                    {'searchable': false},
+                    null,
+                    null,
+                    null,
+                    {'searchable': false, 'orderable': false}
+                ]
+            });
+
+            $('.star-rating').mouseover(function() {
+                $('.star-rating').removeClass('text-warning opacity-1').addClass('text-secondary opacity-25');
+                for(i = 0; i <= $(this).data('value'); i++) {
+                    $('.star'+i).removeClass('text-secondary opacity-25').addClass('text-warning opacity-1');
+                }
+            });
+
+            $('.star-rating').mouseleave(function() {
+                if($('#rating').val() == '') {
+                    $('.star-rating').removeClass('text-warning opacity-1').addClass('text-secondary opacity-25');
+                } else {
+                    $('.star-rating').removeClass('text-warning opacity-1').addClass('text-secondary opacity-25');
+                    for(i = 0; i < $('#rating').val(); i++) {
+                        $('.star'+i).removeClass('text-secondary opacity-25').addClass('text-warning opacity-1');
+                    }
+                }
+            });
+
+            $('.star-rating').click(function() {
+                for(i = 0; i <= $(this).data('value'); i++) {
+                    $('.star'+i).removeClass('text-secondary opacity-25').addClass('text-warning opacity-1');
+                }
+                $('#rating').val(parseInt($(this).data('value')) + 1);
+            });
+
+            $('.star-rating-edit').mouseover(function() {
+                $('.star-rating-edit').removeClass('text-warning opacity-1').addClass('text-secondary opacity-25');
+                for(i = 0; i <= $(this).data('value'); i++) {
+                    $('.star-edit'+i).removeClass('text-secondary opacity-25').addClass('text-warning opacity-1');
+                }
+            });
+
+            $('.star-rating-edit').mouseleave(function() {
+                if($('#rating').val() == '') {
+                    $('.star-rating-edit').removeClass('text-warning opacity-1').addClass('text-secondary opacity-25');
+                } else {
+                    $('.star-rating-edit').removeClass('text-warning opacity-1').addClass('text-secondary opacity-25');
+                    for(i = 0; i < $('#rating').val(); i++) {
+                        $('.star-edit'+i).removeClass('text-secondary opacity-25').addClass('text-warning opacity-1');
+                    }
+                }
+            });
+
+            $('.star-rating-edit').click(function() {
+                for(i = 0; i <= $(this).data('value'); i++) {
+                    $('.star-edit'+i).removeClass('text-secondary opacity-25').addClass('text-warning opacity-1');
+                }
+                $('#rating').val(parseInt($(this).data('value')) + 1);
+            });
+        });
+    </script>
+</body>
+</html>

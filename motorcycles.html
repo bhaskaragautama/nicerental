@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nice Rental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/datatables/datatables.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="<?= BASEURL; ?>/assets/datepicker/css/bootstrap-datepicker.min.css"> -->
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="assets/fontawesome/js/all.min.js"></script>
+    <script src="assets/datatables/datatables.min.js"></script>
+    <!-- <script src="<?= BASEURL; ?>/assets/datepicker/js/bootstrap-datepicker.min.js"></script> -->
+    <!-- <script src="<?= BASEURL; ?>/assets/js/flasher.js"></script> -->
+    <script src="assets/tinymce/tinymce.min.js"></script>
+</head>
+<body>
+    <!-- <div class="flasher">
+      <?php Flasher::flash(); ?>
+    </div> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 px-0 sidebar text-white">
+                <h4 class="text-center mt-3 mb-4">Nice Rental</h4>
+                <div class="text-center text-lg-start mb-5">
+                    <div class="menu-group-lg d-none d-lg-block">Dashboard</div><div class="menu-group-sm mx-2 d-lg-none"></div>
+                    <a class="side-menu <?= $page == 'home' ? 'active' : ''; ?>" href="dashboard.html"><i class="fa-solid fa-home"></i> <span class="menu-text d-none d-lg-inline-block">Home</span></a>
+                    <div class="menu-group-lg d-none d-lg-block">Master Data</div><div class="menu-group-sm mx-2 d-lg-none"></div>
+                    <a class="side-menu active" href="motorcycles.html"><i class="fa-solid fa-user"></i> <span class="menu-text d-none d-lg-inline-block">Motorcycles</span></a>
+                    <a class="side-menu <?= $page == 'member' ? 'active' : ''; ?>" href="photos.html"><i class="fa-solid fa-id-card"></i> <span class="menu-text d-none d-lg-inline-block">Photos</span></a>
+                    <a class="side-menu <?= $page == 'category' ? 'active' : ''; ?>" href="reviews.html"><i class="fa-solid fa-layer-group"></i> <span class="menu-text d-none d-lg-inline-block">Reviews</span></a>
+                </div>
+            </div>
+            <div class="col-10 offset-2 px-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid px-3">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Homepage</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-user"></i> <?= $_SESSION['ht-username']; ?>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="account.html">My Account</a></li>
+                                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="p-4">   
+                    <h3 class="mb-2">Motorcycles</h3>
+                        <div class="mt-4">
+                            <a href="#" data-bs-target="#modal-form" data-bs-toggle="modal" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus-circle"></i> Add</a>
+                            <div class="row table-container py-3 mt-1">
+                                <table id="tbl-motorcycles" class="table table-bordered" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th>Daily Price</th>
+                                            <th>Weekly Price</th>
+                                            <th>Monthly Price</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td>Yamaha XSR</td>
+                                            <td class="text-center">IDR 300,000</td>
+                                            <td class="text-center">IDR 1,500,000</td>
+                                            <td class="text-center">IDR 8,000,000</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary" title="Detail" data-bs-toggle="modal" data-bs-target="#motorcycle-detail"><i class="fa-solid fa-bars"></i></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-bs-toggle="modal" data-bs-target="#modal-form-edit"><i class="fa-solid fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td>Honda PCX</td>
+                                            <td class="text-center">IDR 200,000</td>
+                                            <td class="text-center">IDR 1,000,000</td>
+                                            <td class="text-center">IDR 6,000,000</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary" title="Detail" data-bs-toggle="modal" data-bs-target="#motorcycle-detail"><i class="fa-solid fa-bars"></i></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-bs-toggle="modal" data-bs-target="#modal-form-edit"><i class="fa-solid fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td>Yamaha NMAX</td>
+                                            <td class="text-center">IDR 400,000</td>
+                                            <td class="text-center">IDR 1,800,000</td>
+                                            <td class="text-center">IDR 8,500,000</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary" title="Detail" data-bs-toggle="modal" data-bs-target="#motorcycle-detail"><i class="fa-solid fa-bars"></i></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-bs-toggle="modal" data-bs-target="#modal-form-edit"><i class="fa-solid fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#modal-delete"><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal delete -->
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-deleteLabel">Warning!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to remove this data? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a id="modal-delete-btn" class="btn btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal delete -->
+
+    <!-- Modal form -->
+    <div class="modal fade modal-lg" id="modal-form" tabindex="-1" aria-labelledby="modal-formLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-formLabel">Motorcycles Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="daily" class="form-label">Daily Price</label>
+                        <input type="number" class="form-control" id="daily">
+                    </div>
+                    <div class="mb-3">
+                        <label for="weekly" class="form-label">Weekly Price</label>
+                        <input type="number" class="form-control" id="weekly">
+                    </div>
+                    <div class="mb-3">
+                        <label for="monthly" class="form-label">Monthly Price</label>
+                        <input type="number" class="form-control" id="monthly">
+                    </div>
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Description</label>
+                        <textarea class="form-control" id="desc"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pictures" class="form-label">Pictures</label>
+                        <input type="file" class="form-control" id="pictures" multiple>
+                    </div>
+                    <button class="btn btn-primary"><i class="fa-solid fa-save"></i> Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal form -->
+
+    <!-- Modal form edit -->
+    <div class="modal fade modal-lg" id="modal-form-edit" tabindex="-1" aria-labelledby="modal-form-editLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-form-editLabel">Motorcycles Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" value="Yamaha XSR">
+                    </div>
+                    <div class="mb-3">
+                        <label for="daily" class="form-label">Daily Price</label>
+                        <input type="number" class="form-control" id="daily" value="300000">
+                    </div>
+                    <div class="mb-3">
+                        <label for="weekly" class="form-label">Weekly Price</label>
+                        <input type="number" class="form-control" id="weekly" value="1500000">
+                    </div>
+                    <div class="mb-3">
+                        <label for="monthly" class="form-label">Monthly Price</label>
+                        <input type="number" class="form-control" id="monthly" value="8000000">
+                    </div>
+                    <div class="mb-3">
+                        <label for="desc-edit" class="form-label">Description</label>
+                        <textarea class="form-control" id="desc-edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos suscipit, ab nam sed iure id mollitia laudantium quod reiciendis accusantium repellat vero quibusdam. Corporis odio labore, consequatur enim illum ex!</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pictures" class="form-label">Pictures</label>
+                        <div class="row">
+                            <div class="col-3 mb-3">
+                                <div>
+                                    <button type="button" class="btn-close position-absolute p-2" aria-label="Close"></button>
+                                    <img src="img/display1.jpg" class="img-fluid rounded-1">
+                                </div>
+                            </div>
+                            <div class="col-3 mb-2">
+                                <div>
+                                    <button type="button" class="btn-close position-absolute p-2" aria-label="Close"></button>
+                                    <img src="img/display2.jpg" class="img-fluid rounded-1">
+                                </div>
+                            </div>
+                            <div class="col-3 mb-2">
+                                <div>
+                                    <button type="button" class="btn-close position-absolute p-2" aria-label="Close"></button>
+                                    <img src="img/display3.jpg" class="img-fluid rounded-1">
+                                </div>
+                            </div>
+                            <div class="col-3 mb-2">
+                                <div>
+                                    <button type="button" class="btn-close position-absolute p-2" aria-label="Close"></button>
+                                    <img src="img/display4.jpg" class="img-fluid rounded-1">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="file" class="form-control" id="pictures" multiple>
+                    </div>
+                    <button class="btn btn-primary"><i class="fa-solid fa-save"></i> Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of modal form edit -->
+
+    <!-- motorcycle detail modal start -->
+    <div class="modal modal-xl fade" id="motorcycle-detail" tabindex="-1" aria-labelledby="motorcycle-detailLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h1 class="modal-title fs-5 w-100" id="motorcycle-detailLabel">Moto-X</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div id="carousel-detail" class="carousel slide carousel-fade">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="img/motor1.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/motor2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/motor3.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/motor4.jpg" class="d-block w-100">
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-detail" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-detail" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <div class="carousel-indicators mx-0">
+                                        <div class="mx-n1 text-center">
+                                            <img src="img/motor1.jpg" data-bs-target="#carousel-detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                                            <img src="img/motor2.jpg" data-bs-target="#carousel-detail" data-bs-slide-to="1" aria-label="Slide 2">
+                                            <img src="img/motor3.jpg" data-bs-target="#carousel-detail" data-bs-slide-to="2" aria-label="Slide 3">
+                                            <img src="img/motor4.jpg" data-bs-target="#carousel-detail" data-bs-slide-to="3" aria-label="Slide 3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <p class="mb-1">Daily &#8211; IDR 300,000</p>
+                                <p class="mb-1">Weekly &#8211; IDR 1,500,000</p>
+                                <p class="mb-4">Mothly &#8211; IDR 8,000,000</p>
+                                <table class="table-detail mb-4">
+                                    <tbody>
+                                        <tr>
+                                            <td>Type</td>
+                                            <td>:</td>
+                                            <td>Tracker</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Engine</td>
+                                            <td>:</td>
+                                            <td>150cc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Seat</td>
+                                            <td>:</td>
+                                            <td>Double</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cylinders</td>
+                                            <td>:</td>
+                                            <td>One</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bike Types</td>
+                                            <td>:</td>
+                                            <td>Custom</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime facere ullam magni sunt, saepe illo? Eum quaerat aliquam cum praesentium exercitationem iure tenetur totam sit ad! Cupiditate consectetur ad quos?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- motorcycle detail modal end -->
+
+    <script src="js/sidebar.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tbl-motorcycles').DataTable({
+                'columns': [
+                    {'searchable': false},
+                    null,
+                    null,
+                    null,
+                    null,
+                    {'searchable': false, 'orderable': false}
+                ]
+            });
+
+            tinymce.init({
+                selector: '#desc'
+            });
+
+            tinymce.init({
+                selector: '#desc-edit'
+            });
+        });
+    </script>
+</body>
+</html>
